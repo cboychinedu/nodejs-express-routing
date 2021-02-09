@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- Adding the css file -->
+    <link rel="stylesheet" href="css/main.css">
+    <title></title>
+  </head>
+  <body>
+      <center> <h1 style="text-align: center;"> This is the loaded page </h1> </center> <br>
+
+      <div class="form-div" id="form-div" style="text-align: center; background-color: #12122b; font-size: 20px; margin-left: 200px; margin-right: 200px; padding-top: 100px; padding-bottom: 100px; padding-left: 20px; padding-right: 20px;">
+          <form id="form-section">
+
+            <label for="emailaddress" class="emailaddress"> Email address </label> <br>
+            <input type="email" class="emailValue" id="emailValue" required> <br> <br>
+
+            <label for="password" class="passwordLabel" id="passwordLabel"> Password </label> <br>
+            <input type="password" class="passwordValue" id="passwordValue" required> <br> <br>
+
+            <input type="submit" class="submitBtn" id="submitBtn"> <br>
+
+
+
+          </form>
+
+      </div>
+
+      <script>
+
+      // Creating an event listener for the form data
+      let submitBtn = document.getElementById('submitBtn');
+      submitBtn.addEventListener('click', () => {
+        sendData();
+        console.log("Submit Button Pressed!");
+
+      });
+
+      // Creating a function for sending the data.
+      function sendData()
+        {
+
+          // Getting the form data
+          let emailValue = document.getElementById('emailValue').value;
+          let passValue = document.getElementById('passwordValue').value;
+
+          // Converting the data into a json format
+          let userData = {'email': emailValue, 'password': passValue };
+
+          $.ajax({
+            // The connection type and the url
+            type: 'POST',
+            url: '/',
+
+            // Sending the data
+            crossDomain: true,
+            dataType: 'json',
+            data: userData,
+
+            // Checking for a successful connection
+            success: function(data)
+                  {
+                      //
+                      alert('Data sent!');
+                  }
+          })
+          .done((data) =>
+          {
+              // Execute this block of code if the connection is successful and there
+              // was a returned value
+              if (data.error === true )
+              {
+                // if there was an error in the connection
+                console.log('Error in connection!');
+              }
+
+              else {
+                console.log(data);
+              }
+          });
+
+        };
+
+
+      </script>
+
+
+      <script src="javascript/ajax-min.js" > </script>
+  </body>
+</html>

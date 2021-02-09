@@ -1,0 +1,14 @@
+{
+  "name": "express-framework",
+  "version": "1.0.0",
+  "description": "Working on the express-module",
+  "main": "express-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mbonu Chinedum",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0"
+  }
+}

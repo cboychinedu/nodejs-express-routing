@@ -1,0 +1,18 @@
+body {
+  background-color: #171414;
+  color: white;
+}
+
+#emailValue, #passwordValue {
+  height: 20px;
+  width: 60%;
+  font-size: 11px;
+  margin-top: 0px;
+  margin-bottom: -3px;
+}
+
+#submitBtn {
+  height: 29px;
+  width: 107px;
+  font-size: 13px;
+}
